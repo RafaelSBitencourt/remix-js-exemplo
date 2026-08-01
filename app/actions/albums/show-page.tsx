@@ -3,6 +3,7 @@ import type { Handle } from "remix/ui";
 import { type Album } from "./data.ts";
 import { Document } from "../../ui/document.tsx";
 import { css } from "remix/ui";
+import { routes } from "../../routes.ts";
 
 export function AlbumPage(handle: Handle<{ album: Album }>) {
   return () => {
@@ -24,6 +25,11 @@ export function AlbumPage(handle: Handle<{ album: Album }>) {
           >
             {album.artist} - {album.year}
           </p>
+          <button>
+            <a href={routes.albums.edit.action.href({ albumId: album.id })}>
+              Editar
+            </a>
+          </button>
         </main>
       </Document>
     );
