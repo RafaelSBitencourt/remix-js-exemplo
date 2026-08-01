@@ -2,7 +2,7 @@ import { createController } from "remix/router";
 
 import { routes } from "../../routes.ts";
 import { getAlbum } from "./data.ts";
-import { AlbumPage } from "./show-pages.tsx";
+import { AlbumPage } from "./show-page.tsx";
 
 export default createController(routes.albums, {
   actions: {
