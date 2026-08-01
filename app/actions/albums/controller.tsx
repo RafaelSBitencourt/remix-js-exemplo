@@ -1,11 +1,19 @@
 import { createController } from "remix/router";
 
 import { routes } from "../../routes.ts";
+import { getAlbum } from "./data.ts";
+import { AlbumPage } from "./show-pages.tsx";
 
 export default createController(routes.albums, {
   actions: {
-    show(context) {
-      return new Response(`Album: ${context.params.albumId}`);
+    async show(context) {
+      let album = await getAlbum(context.params.albumId);
+
+      if (album === undefined) {
+        return new Response("Album not found", { status: 404 });
+      }
+
+      return context.render(<AlbumPage album={album} />);
     },
   },
 });
