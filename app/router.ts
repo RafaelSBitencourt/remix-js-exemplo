@@ -5,6 +5,7 @@ import { formData } from "remix/form-data-middleware";
 import HomeController from "./actions/home/controller.tsx";
 import AlbumsController from "./actions/albums/controller.tsx";
 import AlbumsEditController from "./actions/albums/edit/controller.tsx";
+import AlbumsDeleteController from "./actions/albums/destroy/controller.tsx";
 import { render } from "./middleware/render.tsx";
 import { routes } from "./routes.ts";
 
@@ -23,3 +24,4 @@ declare module "remix/router" {
 router.map(routes, HomeController);
 router.map(routes.albums, AlbumsController);
 router.map(routes.albums.edit, AlbumsEditController);
+router.map(routes.albums.destroy, AlbumsDeleteController);

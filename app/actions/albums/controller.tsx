@@ -6,6 +6,9 @@ import { AlbumPage } from "./show-page.tsx";
 
 export default createController(routes.albums, {
   actions: {
+    index() {
+      return new Response("aqui");
+    },
     async show(context) {
       let album = await getAlbum(context.params.albumId);
 

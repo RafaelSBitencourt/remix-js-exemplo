@@ -1,10 +1,8 @@
-import { form, get, route } from "remix/routes";
+import { get, route } from "remix/routes";
+import { albumRoutes } from "./actions/albums/routes.ts";
 
 export const routes = route({
   assets: get("/assets/*path"),
   home: "/",
-  albums: {
-    show: get("/albums/:albumId"),
-    edit: form("/albums/:albumId/edit"),
-  },
+  albums: route("/albums", albumRoutes),
 });
