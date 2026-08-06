@@ -46,7 +46,7 @@ export function HomePage() {
               textDecoration: "none",
               color: "white",
             })}
-            href={routes.albums.show.href({ albumId: "thriller" })}
+            href={routes.albums.index.href()}
           >
             abc
           </a>

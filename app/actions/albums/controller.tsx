@@ -3,11 +3,12 @@ import { createController } from "remix/router";
 import { routes } from "../../routes.ts";
 import { getAlbum } from "./data.ts";
 import { AlbumPage } from "./show-page.tsx";
+import { AlbumsListPage } from "./page.tsx";
 
 export default createController(routes.albums, {
   actions: {
-    index() {
-      return new Response("aqui");
+    async index(context) {
+      return context.render(<AlbumsListPage />);
     },
     async show(context) {
       let album = await getAlbum(context.params.albumId);

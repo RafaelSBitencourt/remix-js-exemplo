@@ -26,6 +26,10 @@ let albums: Album[] = [
   },
 ];
 
+export function getAllAlbums() {
+  return albums.map((album) => ({ ...album }));
+}
+
 export async function getAlbum(albumId: string) {
   return albums.find((album) => album.id === albumId);
 }

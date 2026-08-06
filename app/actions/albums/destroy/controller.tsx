@@ -23,7 +23,7 @@ export default createController(routes.albums.destroy, {
       if (album === undefined) {
         return new Response("Album not found", { status: 404 });
       }
-      return redirect("/albums");
+      return redirect(routes.albums.index.href());
     },
   },
 });
