@@ -12,7 +12,7 @@ export const AlbumDeleteForm = clientEntry(
       return (
         <form
           action={routes.albums.destroy.action.href({ albumId: album.id })}
-          method="delete"
+          method="post"
           mix={[
             css({
               display: "grid",
@@ -28,6 +28,7 @@ export const AlbumDeleteForm = clientEntry(
             }),
           ]}
         >
+          <input type="hidden" name="_method" value="DELETE" />
           <label>
             Title
             <input name="title" defaultValue={album.title} disabled />
