@@ -1,0 +1,216 @@
+:root {
+  /* Design tokens: semantic palette for the app */
+  --color-primary: #0ffff7;
+  --color-success: #17ffbb;
+  --color-danger: #f70022;
+  --color-warning: #ff641c;
+  --color-highlight: #ffd641;
+
+  --bg-base: #f4f5f7;
+  --bg-surface: #ffffff;
+  --bg-surface-strong: #eef2ff;
+
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --border-color: #e5e7eb;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --shadow-soft: 0 10px 30px rgba(15, 17, 21, 0.08);
+  --shadow-card: 0 4px 12px rgba(15, 17, 21, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-base: #0f172a;
+    --bg-surface: #1e293b;
+    --bg-surface-strong: #0b1220;
+
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+
+    --shadow-soft: 0 18px 40px rgba(2, 6, 23, 0.5);
+    --shadow-card: 0 8px 20px rgba(2, 6, 23, 0.4);
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-main);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Shared layout primitives aligned with a Remix-style UI model */
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.cluster {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.surface-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 1.5rem;
+}
+
+.surface-panel--tight {
+  padding: 1rem;
+}
+
+.surface-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.surface-panel__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  padding: 1.25rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.badge--success {
+  background: rgba(23, 255, 187, 0.12);
+  color: var(--color-success);
+}
+
+.badge--danger {
+  background: rgba(247, 0, 34, 0.1);
+  color: var(--color-danger);
+}
+
+.badge--warning {
+  background: rgba(255, 100, 28, 0.12);
+  color: var(--color-warning);
+}
+
+.btn {
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  padding: 0.7rem 1.1rem;
+  transition:
+    filter 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn:hover {
+  filter: brightness(0.96);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #0f172a;
+}
+
+.btn-danger {
+  background: var(--color-danger);
+  color: white;
+}
+
+.btn-secondary {
+  background: var(--bg-surface-strong);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+.text-success {
+  color: var(--color-success);
+}
+
+.text-danger {
+  color: var(--color-danger);
+}
+
+.text-warning {
+  color: var(--color-warning);
+}
+
+.text-highlight {
+  color: var(--color-highlight);
+}
+
+/* Good default for route-level content sections */
+.page-shell {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}

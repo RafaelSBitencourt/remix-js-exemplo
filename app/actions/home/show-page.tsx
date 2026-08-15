@@ -2,6 +2,8 @@ import { css } from "remix/ui";
 
 import { Document } from "../../ui/document.tsx";
 import { routes } from "../../routes.ts";
+import { Button } from "../../ui/button.tsx";
+import { Card } from "../../ui/card.tsx";
 
 export function HomePage() {
   return () => (
@@ -21,36 +23,23 @@ export function HomePage() {
     >
       <main
         mix={css({
-          // Light-mode design tokens (default).
-          fontFamily: "verdana",
-          color: "white",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          minHeight: "100vh",
+          padding: "2rem",
         })}
       >
-        <button
-          mix={css({
-            backgroundColor: "#9c4a4a",
-            cursor: "pointer",
-          })}
-        >
-          <a
-            mix={css({
-              width: "100%",
-              height: "100%",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "72px",
-              textDecoration: "none",
-              color: "white",
-            })}
-            href={routes.albums.index.href()}
-          >
-            abc
-          </a>
-        </button>
+        <Card title="Albums">
+          <div mix={css({ display: "grid", gap: "1rem" })}>
+            <p mix={css({ color: "var(--text-muted)", margin: 0 })}>
+              Explore the album catalog.
+            </p>
+            <Button href={routes.albums.index.href()} variant="primary">
+              Go to albums
+            </Button>
+          </div>
+        </Card>
       </main>
     </Document>
   );

@@ -4,32 +4,28 @@ import { type Album } from "./data.ts";
 import { Document } from "../../ui/document.tsx";
 import { css } from "remix/ui";
 import { routes } from "../../routes.ts";
+import { Button } from "../../ui/button.tsx";
+import { Card } from "../../ui/card.tsx";
 
 export function AlbumPage(handle: Handle<{ album: Album }>) {
   return () => {
     let { album } = handle.props;
     return (
       <Document title={`${album.title} - Albums`}>
-        <main
-          mix={css({
-            maxWidth: "44rem",
-            margin: "0 auto",
-            padding: "4rem 1.5rem",
-          })}
-        >
-          <h1>{album.title}</h1>
-          <p
-            mix={css({
-              color: "#666",
-            })}
-          >
-            {album.artist} - {album.year}
-          </p>
-          <button>
-            <a href={routes.albums.edit.action.href({ albumId: album.id })}>
-              Editar
-            </a>
-          </button>
+        <main className="page-shell">
+          <Card title={album.title}>
+            <div mix={css({ display: "grid", gap: "1rem" })}>
+              <p mix={css({ color: "var(--text-muted)", margin: 0 })}>
+                {album.artist} — {album.year}
+              </p>
+              <Button
+                href={routes.albums.edit.action.href({ albumId: album.id })}
+                variant="secondary"
+              >
+                Editar
+              </Button>
+            </div>
+          </Card>
         </main>
       </Document>
     );

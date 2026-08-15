@@ -1,6 +1,6 @@
 import { createRouter, type RouterContext } from "remix/router";
 import { staticFiles } from "remix/middleware/static";
-import { formData } from "remix/form-data-middleware";
+import { formData } from "remix/middleware/form-data";
 import { methodOverride } from "remix/middleware/method-override";
 
 import HomeController from "./actions/home/controller.tsx";
@@ -11,7 +11,12 @@ import { render } from "./middleware/render.tsx";
 import { routes } from "./routes.ts";
 
 export const router = createRouter({
-  middleware: [staticFiles("./public", { index: false }), formData(), methodOverride(), render()],
+  middleware: [
+    staticFiles("./public", { index: false }),
+    formData(),
+    methodOverride(),
+    render(),
+  ],
 });
 
 type AppContext = RouterContext<typeof router>;
