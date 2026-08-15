@@ -1,24 +1,28 @@
-import { getAllAlbums } from "./data.ts";
+import type { Handle } from "remix/ui";
 
-export function AlbumsListPage() {
-  let albumsList = getAllAlbums();
+import type { Album } from "./data.ts";
 
-  return () => (
-    <li>
-      {albumsList.map((album) => (
-        <ul>
-          {album.title} - {album.year}
-          <a href={`albums/${album.id}/edit`}>
-            {" "}
-            <p> Editar</p>
-          </a>
-          <a href={`albums/${album.id}/destroy`}>
-            {" "}
-            <p> Excluir</p>
-          </a>
-          {"--------------------"}
-        </ul>
-      ))}
-    </li>
-  );
+export function AlbumsListPage(handle: Handle<{ albums: Album[] }>) {
+  return () => {
+    const { albums } = handle.props;
+
+    return (
+      <li>
+        {albums.map((album) => (
+          <ul>
+            {album.title} - {album.year}
+            <a href={`albums/${album.id}/edit`}>
+              {" "}
+              <p> Editar</p>
+            </a>
+            <a href={`albums/${album.id}/destroy`}>
+              {" "}
+              <p> Excluir</p>
+            </a>
+            {"--------------------"}
+          </ul>
+        ))}
+      </li>
+    );
+  };
 }

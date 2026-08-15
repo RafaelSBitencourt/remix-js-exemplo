@@ -30,7 +30,7 @@ let albums: Album[] = [
 const delay = (ms = 1000) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export async function getAllAlbums(): Promise<Album[]> {
-  await delay(); // Adicionado para manter a consistência assíncrona
+  await delay();
   return albums.map((album) => ({ ...album }));
 }
 
