@@ -1,6 +1,7 @@
 import { clientEntry, css, type Handle, on } from "remix/ui";
 import type { Album } from "../data.ts";
 import { routes } from "../../../routes.ts";
+import { Button } from "../../../ui/button.tsx";
 
 export const AlbumEditForm = clientEntry(
   import.meta.url,
@@ -43,6 +44,9 @@ export const AlbumEditForm = clientEntry(
           <button disabled={pending} type="submit">
             {pending ? "Saving..." : "Save Album"}
           </button>
+          <Button variant="secondary" href={routes.albums.index.href()}>
+            Voltar
+          </Button>
         </form>
       );
     };

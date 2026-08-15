@@ -1,6 +1,7 @@
 import { clientEntry, css, type Handle, on } from "remix/ui";
 import type { Album } from "../data.ts";
 import { routes } from "../../../routes.ts";
+import { Button } from "../../../ui/button.tsx";
 
 export const AlbumDeleteForm = clientEntry(
   import.meta.url,
@@ -44,6 +45,9 @@ export const AlbumDeleteForm = clientEntry(
           <button disabled={pending} type="submit">
             {pending ? "Deleting..." : "Deleted Album"}
           </button>
+          <Button variant="secondary" href={routes.albums.index.href()}>
+            Voltar
+          </Button>
         </form>
       );
     };
