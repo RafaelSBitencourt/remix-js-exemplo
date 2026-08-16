@@ -1,8 +1,8 @@
 import { css, type Handle } from "remix/ui";
 
 import type { Album } from "./data.ts";
-import { Card } from "../../ui/card.tsx";
-import { Button } from "../../ui/button.tsx";
+import { Card } from "../../ui/card/card.tsx";
+import { Button } from "../../ui/button/button.tsx";
 import { routes } from "../../routes.ts";
 import { Document } from "../../ui/document.tsx";
 

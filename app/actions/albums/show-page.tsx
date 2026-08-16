@@ -4,8 +4,8 @@ import { type Album } from "./data.ts";
 import { Document } from "../../ui/document.tsx";
 import { css } from "remix/ui";
 import { routes } from "../../routes.ts";
-import { Button } from "../../ui/button.tsx";
-import { Card } from "../../ui/card.tsx";
+import { Button } from "../../ui/button/button.tsx";
+import { Card } from "../../ui/card/card.tsx";
 
 export function AlbumPage(handle: Handle<{ album: Album }>) {
   return () => {

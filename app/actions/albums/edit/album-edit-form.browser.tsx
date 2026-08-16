@@ -1,7 +1,7 @@
 import { clientEntry, css, type Handle, on } from "remix/ui";
 import type { Album } from "../data.ts";
 import { routes } from "../../../routes.ts";
-import { Button } from "../../../ui/button.tsx";
+import { Button } from "../../../ui/button/button.tsx";
 import { Input } from "../../../ui/input/input.tsx";
 
 export const AlbumEditForm = clientEntry(
