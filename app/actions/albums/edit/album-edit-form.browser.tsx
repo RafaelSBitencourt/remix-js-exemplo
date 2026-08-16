@@ -2,6 +2,7 @@ import { clientEntry, css, type Handle, on } from "remix/ui";
 import type { Album } from "../data.ts";
 import { routes } from "../../../routes.ts";
 import { Button } from "../../../ui/button.tsx";
+import { Input } from "../../../ui/input/input.tsx";
 
 export const AlbumEditForm = clientEntry(
   import.meta.url,
@@ -29,21 +30,29 @@ export const AlbumEditForm = clientEntry(
             }),
           ]}
         >
-          <label>
-            Title
-            <input name="title" defaultValue={album.title} />
-          </label>
-          <label>
-            Artist
-            <input name="artist" defaultValue={album.artist} />
-          </label>
-          <label>
-            Year
-            <input name="year" defaultValue={album.year} />
-          </label>
-          <button disabled={pending} type="submit">
-            {pending ? "Saving..." : "Save Album"}
-          </button>
+          <Input
+            id="album-title"
+            name="title"
+            label="Title"
+            value={album.title}
+          />
+          <Input
+            id="album-artist"
+            name="artist"
+            label="Artist"
+            value={album.artist}
+          />
+          <Input
+            id="album-year"
+            name="year"
+            type="number"
+            label="Year"
+            value={album.year}
+          />
+          <Button type="submit" variant="primary" disable={pending}>
+            {pending ? "Salvando..." : "Salvar"}
+          </Button>
+
           <Button variant="secondary" href={routes.albums.index.href()}>
             Voltar
           </Button>

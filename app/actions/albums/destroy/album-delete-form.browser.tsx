@@ -45,7 +45,11 @@ export const AlbumDeleteForm = clientEntry(
           <button disabled={pending} type="submit">
             {pending ? "Deleting..." : "Deleted Album"}
           </button>
-          <Button variant="secondary" href={routes.albums.index.href()}>
+          <Button
+            type="submit"
+            variant="secondary"
+            href={routes.albums.index.href()}
+          >
             Voltar
           </Button>
         </form>

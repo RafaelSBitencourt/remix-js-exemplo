@@ -38,7 +38,7 @@ export default createController(routes.albums.edit, {
         return new Response("Album not found", { status: 404 });
       }
 
-      return redirect(routes.albums.show.href({ albumId: album.id }));
+      return redirect(routes.albums.index.href());
     },
   },
 });

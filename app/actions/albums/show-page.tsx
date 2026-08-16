@@ -20,9 +20,12 @@ export function AlbumPage(handle: Handle<{ album: Album }>) {
               </p>
               <Button
                 href={routes.albums.edit.action.href({ albumId: album.id })}
-                variant="secondary"
+                variant="primary"
               >
                 Editar
+              </Button>
+              <Button href={routes.albums.index.href()} variant="secondary">
+                Voltar
               </Button>
             </div>
           </Card>

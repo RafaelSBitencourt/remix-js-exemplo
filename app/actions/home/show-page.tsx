@@ -11,7 +11,6 @@ export function HomePage() {
       head={
         <h1
           mix={css({
-            fontFamily: "verdana",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -24,7 +23,7 @@ export function HomePage() {
       <main
         mix={css({
           display: "flex",
-          alignItems: "center",
+          alignItems: "start",
           justifyContent: "center",
           minHeight: "100vh",
           padding: "2rem",
@@ -36,7 +35,7 @@ export function HomePage() {
               Explore the album catalog.
             </p>
             <Button href={routes.albums.index.href()} variant="primary">
-              Go to albums
+              Ver Albums
             </Button>
           </div>
         </Card>

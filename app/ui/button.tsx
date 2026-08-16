@@ -7,6 +7,7 @@ export interface ButtonProps {
   variant?: ButtonVariant;
   type?: "button" | "submit";
   href?: string;
+  disable?: boolean;
 }
 
 export function Button(handle: Handle<ButtonProps>) {
@@ -16,6 +17,7 @@ export function Button(handle: Handle<ButtonProps>) {
       variant = "primary",
       type = "button",
       href,
+      disable = false,
     } = handle.props;
 
     const sharedProps = {
@@ -31,7 +33,7 @@ export function Button(handle: Handle<ButtonProps>) {
     }
 
     return (
-      <button type={type} {...sharedProps}>
+      <button type={type} {...sharedProps} disabled={disable}>
         {children}
       </button>
     );
