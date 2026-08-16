@@ -1,9 +1,9 @@
 import { css } from "remix/ui";
 
-import { Document } from "../../ui/document.tsx";
-import { routes } from "../../routes.ts";
-import { Button } from "../../ui/button/button.tsx";
-import { Card } from "../../ui/card/card.tsx";
+import { Document } from "../ui/document.tsx";
+import { routes } from "../routes.ts";
+import { Button } from "../ui/button/button.tsx";
+import { Card } from "../ui/card/card.tsx";
 
 export function HomePage() {
   return () => (
@@ -16,7 +16,7 @@ export function HomePage() {
             justifyContent: "center",
           })}
         >
-          Remix
+          Home
         </h1>
       }
     >
@@ -32,10 +32,10 @@ export function HomePage() {
         <Card title="Albums">
           <div mix={css({ display: "grid", gap: "1rem" })}>
             <p mix={css({ color: "var(--text-muted)", margin: 0 })}>
-              Explore the album catalog.
+              Explore o catálogo de álbuns.
             </p>
             <Button href={routes.albums.index.href()} variant="primary">
-              Ver Albums
+              Ver Álbuns
             </Button>
           </div>
         </Card>

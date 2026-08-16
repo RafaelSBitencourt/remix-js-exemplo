@@ -1,8 +1,8 @@
 import { createController } from "remix/router";
 
-import { assetServer } from "../../assets.ts";
-import { routes } from "../../routes.ts";
-import { HomePage } from "./show-page.tsx";
+import { assetServer } from "../assets.ts";
+import { routes } from "../routes.ts";
+import { HomePage } from "./home-page.tsx";
 
 export default createController(routes, {
   actions: {
