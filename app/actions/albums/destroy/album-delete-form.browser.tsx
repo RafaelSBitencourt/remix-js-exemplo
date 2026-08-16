@@ -2,6 +2,7 @@ import { clientEntry, css, type Handle, on } from "remix/ui";
 import type { Album } from "../data.ts";
 import { routes } from "../../../routes.ts";
 import { Button } from "../../../ui/button/button.tsx";
+import { Input } from "../../../ui/input/input.tsx";
 
 export const AlbumDeleteForm = clientEntry(
   import.meta.url,
@@ -30,26 +31,30 @@ export const AlbumDeleteForm = clientEntry(
           ]}
         >
           <input type="hidden" name="_method" value="DELETE" />
-          <label>
-            Title
-            <input name="title" defaultValue={album.title} disabled />
-          </label>
-          <label>
-            Artist
-            <input name="artist" defaultValue={album.artist} disabled />
-          </label>
-          <label>
-            Year
-            <input name="year" defaultValue={album.year} disabled />
-          </label>
-          <button disabled={pending} type="submit">
-            {pending ? "Deleting..." : "Deleted Album"}
-          </button>
-          <Button
-            type="submit"
-            variant="secondary"
-            href={routes.albums.index.href()}
-          >
+          <Input
+            id="album-title"
+            name="title"
+            label="Title"
+            value={album.title}
+          />
+          <Input
+            id="album-artist"
+            name="artist"
+            label="Artist"
+            value={album.artist}
+          />
+          <Input
+            id="album-year"
+            name="year"
+            type="number"
+            label="Year"
+            value={album.year}
+          />
+          <Button type="submit" variant="danger" disable={pending}>
+            {pending ? "Removendo..." : "Remover"}
+          </Button>
+
+          <Button variant="secondary" href={routes.albums.index.href()}>
             Voltar
           </Button>
         </form>

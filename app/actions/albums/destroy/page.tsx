@@ -11,7 +11,7 @@ export function AlbumDeletePage(handle: Handle<{ album: Album }>) {
     return (
       <Document title={`Edit ${album.title} - Albums`}>
         <main mix={css({ padding: "1rem" })}>
-          <h1>Del {album.title}</h1>
+          <h1>Delete </h1>
           <AlbumDeleteForm album={album} />
         </main>
       </Document>
