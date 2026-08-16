@@ -4,7 +4,7 @@ import { formData } from "remix/middleware/form-data";
 import { methodOverride } from "remix/middleware/method-override";
 
 import HomeController from "./actions/home/controller.tsx";
-import AlbumsController from "./actions/albums/controller.tsx";
+import AlbumsController from "./actions/albums/list/controller.tsx";
 import AlbumsEditController from "./actions/albums/edit/controller.tsx";
 import AlbumsDeleteController from "./actions/albums/destroy/controller.tsx";
 import { render } from "./middleware/render.tsx";

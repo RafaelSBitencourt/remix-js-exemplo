@@ -1,10 +1,10 @@
 import { css, type Handle } from "remix/ui";
 
-import type { Album } from "./data.ts";
-import { Card } from "../../ui/card/card.tsx";
-import { Button } from "../../ui/button/button.tsx";
-import { routes } from "../../routes.ts";
-import { Document } from "../../ui/document.tsx";
+import type { Album } from "../data.ts";
+import { Card } from "../../../ui/card/card.tsx";
+import { Button } from "../../../ui/button/button.tsx";
+import { routes } from "../../../routes.ts";
+import { Document } from "../../../ui/document.tsx";
 
 export function AlbumsListPage(handle: Handle<{ albums: Album[] }>) {
   return () => {
