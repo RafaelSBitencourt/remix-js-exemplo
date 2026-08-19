@@ -41,6 +41,12 @@ export async function getAlbum(albumId: string): Promise<Album | undefined> {
   return album ? { ...album } : undefined;
 }
 
+export async function createAlbum(album: Album) {
+  await delay();
+  albums.push(album);
+  return album;
+}
+
 // Omit garante que o campo 'id' não possa ser enviado no objeto de atualização
 export async function updateAlbum(
   albumId: string,

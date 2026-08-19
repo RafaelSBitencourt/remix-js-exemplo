@@ -14,6 +14,9 @@ export function AlbumsListPage(handle: Handle<{ albums: Album[] }>) {
       <Document title="Albums">
         <main className="page-shell">
           <div mix={css({ display: "grid", gap: "1rem" })}>
+            <Button href={routes.albums.create.index.href()} variant="primary">
+              + Adicionar Album
+            </Button>
             {albums.map((album) => (
               <Card key={album.id} title={album.title}>
                 <div
