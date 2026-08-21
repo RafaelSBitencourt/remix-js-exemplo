@@ -1,43 +1,67 @@
-import { css, type Handle, type RemixNode } from "remix/ui";
+import button from "remix/ui/button";
+import { attrs, css, type Handle, type Props, type RemixNode } from "remix/ui";
 
 export type ButtonVariant = "primary" | "secondary" | "danger";
 
-export interface ButtonProps {
-  children?: RemixNode;
+type VariantProps = {
   variant?: ButtonVariant;
-  type?: "button" | "submit";
-  href?: string;
-  disable?: boolean;
-}
+};
+
+type ButtonElementProps = VariantProps &
+  Props<"button"> & {
+    children?: RemixNode;
+    href?: never;
+  };
+
+type LinkElementProps = VariantProps &
+  Props<"a"> & {
+    children?: RemixNode;
+    href: string;
+  };
+
+export type ButtonProps = ButtonElementProps | LinkElementProps;
 
 export function Button(handle: Handle<ButtonProps>) {
   return () => {
-    const {
-      children,
-      variant = "primary",
-      type = "button",
-      href,
-      disable = false,
-    } = handle.props;
-
-    const sharedProps = {
-      mix: [buttonStyles, variantStyles[variant]],
-    };
-
-    if (href) {
-      return (
-        <a href={href} {...sharedProps}>
-          {children}
-        </a>
-      );
+    if (handle.props.href !== undefined) {
+      return LinkElement(handle.props);
     }
 
-    return (
-      <button type={type} {...sharedProps} disabled={disable}>
-        {children}
-      </button>
-    );
+    return ButtonElement(handle.props);
   };
+}
+
+function ButtonElement(props: ButtonElementProps) {
+  const { children, variant = "primary", mix, ...buttonProps } = props;
+
+  return (
+    <button
+      {...buttonProps}
+      mix={[
+        attrs<HTMLButtonElement>({ type: "button" }),
+        button(),
+        buttonStyles,
+        variantStyles[variant],
+        ...(mix ?? []),
+      ]}
+    >
+      {children}
+    </button>
+  );
+}
+
+function LinkElement(props: LinkElementProps) {
+  const { children, variant = "primary", href, mix: mix, ...linkProps } = props;
+
+  return (
+    <a
+      href={href}
+      {...linkProps}
+      mix={[button(), buttonStyles, variantStyles[variant], ...(mix ?? [])]}
+    >
+      {children}
+    </a>
+  );
 }
 
 const buttonStyles = css({
