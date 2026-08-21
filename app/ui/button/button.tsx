@@ -66,6 +66,7 @@ function LinkElement(props: LinkElementProps) {
 
 const buttonStyles = css({
   appearance: "none",
+  boxSizing: "border-box",
   border: "none",
   borderRadius: "8px",
   cursor: "pointer",
@@ -73,13 +74,17 @@ const buttonStyles = css({
   alignItems: "center",
   justifyContent: "center",
   gap: "0.5rem",
+  height: "auto",
   minHeight: "42px",
   padding: "0.7rem 1.1rem",
+  fontFamily: "inherit",
+  fontSize: "inherit",
   fontWeight: 700,
   letterSpacing: "0.01em",
   lineHeight: 1.2,
   whiteSpace: "nowrap",
   textDecoration: "none",
+  textShadow: "none",
   transition: "filter 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease",
   boxShadow: "inset 0 0 0 1px rgba(15, 23, 42, 0.05)",
   "&:hover": {
