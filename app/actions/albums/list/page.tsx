@@ -4,7 +4,7 @@ import type { Album } from "../data.ts";
 import { Card } from "../../../ui/card/card.tsx";
 import { Button } from "../../../ui/button/button.tsx";
 import { routes } from "../../../routes.ts";
-import { DeleteModalComponent } from "./components/delete-modal/delete-modal.tsx";
+import { AlbumDeleteModal } from "./components/delete-modal/delete-modal.tsx";
 
 export function AlbumsListPage(handle: Handle<{ albums: Album[] }>) {
   return () => {
@@ -45,7 +45,7 @@ export function AlbumsListPage(handle: Handle<{ albums: Album[] }>) {
                   >
                     Editar
                   </Button>
-                  <DeleteModalComponent album={album} />
+                  <AlbumDeleteModal album={album} />
                 </div>
               </div>
             </Card>

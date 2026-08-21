@@ -5,9 +5,9 @@ import { routes } from "../../../../../routes.ts";
 import { Button } from "../../../../../ui/button/button.tsx";
 import { Modal } from "../../../../../ui/modal/modal.tsx";
 
-export const DeleteModalComponent = clientEntry(
+export const AlbumDeleteModal = clientEntry(
   import.meta.url,
-  function DeleteModalComponent(handle: Handle<{ album: Album }>) {
+  function AlbumDeleteModal(handle: Handle<{ album: Album }>) {
     let modalOpen = false;
 
     return () => {
@@ -15,7 +15,7 @@ export const DeleteModalComponent = clientEntry(
 
       return (
         <>
-          <button
+          <Button
             type="button"
             mix={[
               dangerButtonStyles,
@@ -26,7 +26,7 @@ export const DeleteModalComponent = clientEntry(
             ]}
           >
             Excluir
-          </button>
+          </Button>
           {modalOpen ? (
             <Modal
               title="Excluir álbum"
