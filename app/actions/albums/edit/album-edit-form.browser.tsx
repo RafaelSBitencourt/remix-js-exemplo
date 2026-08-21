@@ -49,7 +49,7 @@ export const AlbumEditForm = clientEntry(
             label="Year"
             value={album.year}
           />
-          <Button type="submit" variant="primary" disable={pending}>
+          <Button type="submit" variant="primary" disabled={pending}>
             {pending ? "Salvando..." : "Salvar"}
           </Button>
 

@@ -50,7 +50,7 @@ export const AlbumDeleteForm = clientEntry(
             label="Year"
             value={album.year}
           />
-          <Button type="submit" variant="danger" disable={pending}>
+          <Button type="submit" variant="danger" disabled={pending}>
             {pending ? "Removendo..." : "Remover"}
           </Button>
 
