@@ -51,7 +51,7 @@ function ButtonElement(props: ButtonElementProps) {
 }
 
 function LinkElement(props: LinkElementProps) {
-  const { children, variant = "primary", href, mix: mix, ...linkProps } = props;
+  const { children, variant = "primary", href, mix, ...linkProps } = props;
 
   return (
     <a
